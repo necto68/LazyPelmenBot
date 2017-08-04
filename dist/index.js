@@ -36,7 +36,7 @@ bot.on('message', function (msg) {
         bot.deleteMessage(chatId, msg.message_id);
     }
 
-    if (!msg.text) return;
+    if (!msg.text || msg.text === '/start') return;
 
     var message = (0, _util.normalizeCode)(msg.text);
 
@@ -63,6 +63,8 @@ bot.on('message', function (msg) {
         sendMessageWithReply(_nodeEmoji2.default.emojify(':8ball::8ball:'));
     } else if (message === 'корм6') {
         sendMessageWithReply(_nodeEmoji2.default.emojify(':hotdog::hamburger::hotdog:'));
+    } else if (message === 'карлик') {
+        sendMessageWithReply('Воу воу, мне лень принимать этот ответ.\nВбивайте его в основную систему');
     } else {
         bot.sendSticker(chatId, (0, _util.randomArrayItem)(_constants.defaultStickers), {
             reply_to_message_id: msg.message_id

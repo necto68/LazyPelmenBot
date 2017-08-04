@@ -35,7 +35,7 @@ bot.on('message', (msg) => {
         bot.deleteMessage(chatId, msg.message_id);
     }
 
-    if (!msg.text) return;
+    if (!msg.text || msg.text === '/start') return;
 
     const message = normalizeCode(msg.text);
 
@@ -62,6 +62,8 @@ bot.on('message', (msg) => {
         sendMessageWithReply(emoji.emojify(':8ball::8ball:'));
     } else if (message === 'корм6') {
         sendMessageWithReply(emoji.emojify(':hotdog::hamburger::hotdog:'));
+    } else if (message === 'карлик') {
+        sendMessageWithReply('Воу воу, мне лень принимать этот ответ.\nВбивайте его в основную систему');
     } else {
         bot.sendSticker(chatId, randomArrayItem(defaultStickers), {
             reply_to_message_id: msg.message_id
