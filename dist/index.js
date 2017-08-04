@@ -49,6 +49,8 @@ bot.on('message', function (msg) {
     } else if (message === 'салфетка34') {
         bot.sendLocation(chatId, 48.480731, 34.956173);
         bot.sendMessage(chatId, 'Код доезда на левом входе.');
+    } else if (message === 'клуб421') {
+        sendMessageWithReply('Играет только левый вход.\n6 черных маркеров.\nФормат ответа: слово');
     } else if (message === 'стрела1') {
         sendMessageWithReply(_nodeEmoji2.default.emojify(':snake::turtle::snake:'));
     } else if (message === 'кастрюля2') {
